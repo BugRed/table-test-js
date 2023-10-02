@@ -1,6 +1,8 @@
 class NegociationController {
 
     constructor() {
+
+        //alias é um apelido
         let $ = document.querySelector.bind(document)
 
         this._inputDate = $('#data')
@@ -12,24 +14,13 @@ class NegociationController {
     addEvent(event) {
 
         event.preventDefault();
-
-        //passar um date em forma de getTime gera uma string
-        //para pegar do outro lado precisa adaptar para um replace com virgula
-        let date = new Date(
-            this._inputDate.value
-                .split('-')
-                /*no caso de haver algo que necessite mudar na data antes de imprimir
-                use Map e execute uma função pra cada parte do array
-                .map((item, index) => item - index % 2;*/
-        );
+        let helper = new DateHelper();
 
         let negociation = new Negociation(
-            date,
+            helper.textForDate(this._inputDate.value),
             this._inputQuantity,
             this._inputValue,
         );
-        console.log(negociation)
-
     }
 
 

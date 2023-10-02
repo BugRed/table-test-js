@@ -23,7 +23,7 @@ class Negociation {
     get date(){
         //date é um objeto portanto não pode ser congelado aqui,
         //para impedir que alguem altere a data ao inves de enviar 
-        //a referencia da data mandamos uma variavel novo como referencia
+        //a referencia da data mandamos uma variavel nova como referencia
         return new Date(this._date.getTime());
     }
 
