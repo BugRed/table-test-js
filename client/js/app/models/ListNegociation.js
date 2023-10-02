@@ -11,6 +11,7 @@ class ListNegociation {
     }
 
     get negociations(){
-        return this._negociations;
+        //retornando uma copia da lista original para impedir alteração
+        return [].concat(this._negociations); 
     }
 }

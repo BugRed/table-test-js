@@ -18,8 +18,6 @@ class NegociationController {
 
         this._listNegociations.addTrade(this._createNegociation())
         this._cleanForm()
-
-        console.log(this._listNegociations.negociations)
     }
 
     _createNegociation(){
