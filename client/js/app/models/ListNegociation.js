@@ -2,7 +2,7 @@ class ListNegociation {
 
 
     constructor(){
-        this._negociations = []
+        this._negociations = [];
     }
 
 

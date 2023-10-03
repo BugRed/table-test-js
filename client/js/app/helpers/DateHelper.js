@@ -7,7 +7,7 @@ class DateHelper {
     //ter um metodo estatico permite invocar o metodo sem instanciar a classe
     static textForDate(text){
         //expressão regular
-        if(!/\d{4}-\d{2}-\d{2}/.test(text)) throw new Error('A data deve estar no formato: yyyy-mm-dd');
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(text)) throw new Error('A data deve estar no formato: yyyy-mm-dd');
 
          //passar um date em forma de getTime gera uma string
         //para pegar do outro lado precisa adaptar para um replace com virgula
@@ -19,6 +19,6 @@ class DateHelper {
     }
 
     static dateForText(date){
-       return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()};`
+       return `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`
     }
 }
