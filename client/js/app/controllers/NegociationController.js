@@ -9,11 +9,21 @@ class NegociationController {
         this._inputQuantity = $('#quantidade');
         this._inputValue = $('#valor');
         this._listNegociations = new ListNegociation();
+
+
         //associando a classe view a div em html
         this._negociationsView = new NegociationsView($('#negociacoesView'));
-    
         //mostrando a tabela view para o user
         this._negociationsView.update(this._listNegociations);
+    
+
+        //criando uma mensagem padrão
+        this._message = new Message();
+        //mostrando a mensagem padrão vai receber o local onde quero exibir a mensagem
+        this._messageView = new MessageView($('#messageView'));
+        this._messageView.update(this._message)
+
+
     }
 
     addEvent(event) {
@@ -21,6 +31,10 @@ class NegociationController {
         event.preventDefault();
         this._listNegociations.addTrade(this._createNegociation());
         this._negociationsView.update(this._listNegociations);
+
+
+        this._message.text = 'Negociação adicionada com sucesso!'
+        this._messageView.update(this._message)
         this._cleanForm();
     }
 

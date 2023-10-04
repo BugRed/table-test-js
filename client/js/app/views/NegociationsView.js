@@ -1,10 +1,11 @@
-class NegociationsView {
+class NegociationsView extends View{
 
     constructor(element){
-        this._element = element;
+        super(element);
     }
 
-    _template(model) {
+
+    template(model) {
 
 
         return `
@@ -19,8 +20,8 @@ class NegociationsView {
         </thead>
         
         <tbody>
-        ${model.negociations.map((e)=>{
-            return `
+        ${model.negociations.map(e => `
+
                 <tr>
                     <td>${DateHelper.dateForText(e.date)}</td>
                     <td>${e.quantity}</td>
@@ -30,15 +31,17 @@ class NegociationsView {
             `
             //.join('') serve pra transformar tudo que foi feito 
             //dentro do map em uma string concatenada
-        }).join('')}
+            ).join('')}
         </tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-    `
-    }
 
-    update(model){
-        this._element.innerHTML = this._template(model);    
-    }
+        <tfoot>
+            <td colspan="3"> </td>
+            <td>${
+                //IIEF podem ser auto-invocadas em templates
+                model.negociations.reduce((sum, n)=>sum + n.volume, 0.0)
+            }</td>
+        </tfoot>
+
+    </table>
+    `}
 }
