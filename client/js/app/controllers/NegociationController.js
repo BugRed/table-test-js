@@ -38,6 +38,14 @@ class NegociationController {
         this._cleanForm();
     }
 
+    delete(){
+        this._listNegociations.cleanList();
+        this._negociationsView.update(this._listNegociations);
+
+        this._message.text = 'Negociações apagadas com sucesso!'
+        this._messageView.update(this._message);
+    }
+
     _createNegociation(){
         return new Negociation(
             DateHelper.textForDate(this._inputDate.value),

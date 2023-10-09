@@ -14,4 +14,8 @@ class ListNegociation {
         //retornando uma copia da lista original para impedir alteração
         return [].concat(this._negociations); 
     }
+
+    cleanList(){
+        this._negociations = [];
+    }
 }
